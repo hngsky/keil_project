@@ -1,0 +1,124 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.24.2.0
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: a a, a, LIC=IK1BF-6WBN2-Z95G9-4FI49-UBXKR-9UEXM
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.24.1
+Toolchain Path:  D:\keil5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 5 (build 528)
+Assembler:       Armasm.exe V5.06 update 5 (build 528)
+Linker/Locator:  ArmLink.exe V5.06 update 5 (build 528)
+Library Manager: ArmAr.exe V5.06 update 5 (build 528)
+Hex Converter:   FromElf.exe V5.06 update 5 (build 528)
+CPU DLL:         SARMCM3.DLL V5.24.1
+Dialog DLL:      DCM.DLL V1.16.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
+Dialog DLL:      TCM.DLL V1.32.0.0
+ 
+<h2>Project:</h2>
+C:\Users\zjh\Desktop\STM32project\modbus\MDK-ARM\modbus.uvprojx
+Project File Date:  09/11/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\keil5\ARM\ARMCC\Bin'
+Rebuild target 'modbus'
+assembling startup_stm32f103xb.s...
+compiling dma.c...
+compiling tim.c...
+compiling main.c...
+../Core/Src/main.c(107): warning:  #223-D: function "eMBRTUInit" declared implicitly
+      eMBRTUInit(1, 3, 9600, MB_PAR_NONE);
+../Core/Src/main.c(108): warning:  #223-D: function "eMBRTUStart" declared implicitly
+      eMBRTUStart();
+../Core/Src/main.c(111): warning:  #223-D: function "eMBMasterRTUInit" declared implicitly
+      eMBMasterRTUInit(1, 9600, MB_PAR_NONE); /* ucPort=1 表示 USART1 */
+../Core/Src/main.c(112): warning:  #223-D: function "eMBMasterRTUStart" declared implicitly
+      eMBMasterRTUStart();
+../Core/Src/main.c(130): warning:  #223-D: function "eMBMasterRTUSend" declared implicitly
+          eMBMasterRTUSend(2, frameReq, 5); /* 询问从机地址2 */
+../Core/Src/main.c(137): warning:  #223-D: function "eMBMasterRTUReceive" declared implicitly
+          if (eMBMasterRTUReceive(&addr, &pdu, &len) == MB_ENOERR) {
+../Core/Src/main.c(141): warning:  #223-D: function "sprintf" declared implicitly
+              sprintf(msg, "Master received from %d, pdu len=%d\r\n", addr, len);
+../Core/Src/main.c: 7 warnings, 0 errors
+compiling stm32f1xx_hal_gpio_ex.c...
+compiling gpio.c...
+compiling stm32f1xx_it.c...
+../Core/Src/stm32f1xx_it.c(244): warning:  #223-D: function "MBPortTimerIRQHandler" declared implicitly
+    MBPortTimerIRQHandler(&htim2);
+../Core/Src/stm32f1xx_it.c(259): warning:  #223-D: function "MBPortSerialUSARTxIRQHandler" declared implicitly
+    MBPortSerialUSARTxIRQHandler(&huart1); /* 处理 IDLE 并标记帧就绪 */
+../Core/Src/stm32f1xx_it.c(287): warning:  #223-D: function "MBPortSerialUSARTxIRQHandler" declared implicitly
+    MBPortSerialUSARTxIRQHandler(&huart3);
+../Core/Src/stm32f1xx_it.c: 3 warnings, 0 errors
+compiling usart.c...
+../Core/Src/usart.c(325): warning:  #223-D: function "MBPortSerialTxCpltCallback" declared implicitly
+      MBPortSerialTxCpltCallback(huart);
+../Core/Src/usart.c: 1 warning, 0 errors
+compiling stm32f1xx_hal.c...
+compiling stm32f1xx_hal_gpio.c...
+compiling stm32f1xx_hal_msp.c...
+compiling stm32f1xx_hal_rcc_ex.c...
+compiling stm32f1xx_hal_rcc.c...
+compiling stm32f1xx_hal_tim_ex.c...
+compiling mb_crc.c...
+compiling stm32f1xx_hal_tim.c...
+compiling stm32f1xx_hal_cortex.c...
+compiling stm32f1xx_hal_pwr.c...
+compiling stm32f1xx_hal_flash.c...
+compiling stm32f1xx_hal_exti.c...
+compiling system_stm32f1xx.c...
+compiling mb_rtu_slave.c...
+..\user\mb_rtu_slave.c(17): warning:  #550-D: variable "slave_baud"  was set but never used
+  static ULONG slave_baud = 9600;
+..\user\mb_rtu_slave.c(18): warning:  #550-D: variable "slave_parity"  was set but never used
+  static eMBParity slave_parity = MB_PAR_NONE;
+..\user\mb_rtu_slave.c: 2 warnings, 0 errors
+compiling mb_rtu_master.c...
+..\user\mb_rtu_master.c(17): warning:  #550-D: variable "master_parity"  was set but never used
+  static eMBParity master_parity = MB_PAR_NONE;
+..\user\mb_rtu_master.c: 1 warning, 0 errors
+compiling rs485.c...
+compiling stm32f1xx_hal_dma.c...
+compiling stm32f1xx_hal_flash_ex.c...
+compiling porttimer.c...
+compiling portserial.c...
+..\user\portserial.c(28): warning:  #177-D: function "get_dma_remaining"  was declared but never referenced
+  static inline uint16_t get_dma_remaining(UART_HandleTypeDef *huart)
+..\user\portserial.c: 1 warning, 0 errors
+compiling stm32f1xx_hal_uart.c...
+linking...
+Program Size: Code=11884 RO-data=312 RW-data=52 ZI-data=3084  
+FromELF: creating hex file...
+"modbus\modbus.axf" - 0 Error(s), 15 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.0.1.pack
+                ARM.CMSIS.5.0.1
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.0.1
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.2.0.pack
+                Keil.STM32F1xx_DFP.2.2.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_modbus
+  D:\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
+  D:\keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.0.1
+Build Time Elapsed:  00:00:05
+</pre>
+</body>
+</html>
